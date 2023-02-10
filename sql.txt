@@ -1,0 +1,26 @@
+CREATE TABLE member
+(
+	 userid VARCHAR(20) PRIMARY KEY,
+	 passwd VARCHAR(30) NOT NULL,
+	 username VARCHAR(20) NOT NULL,
+	 email VARCHAR(50) NOT NULL	 
+);
+
+CREATE TABLE board
+(
+	 NO INT PRIMARY KEY AUTO_INCREMENT,
+	 userid VARCHAR(20) REFERENCES member(userid),
+	 title VARCHAR(30) NOT NULL,
+	 content VARCHAR(255) NOT NULL,
+	 writeday DATE DEFAULT NOW(),
+	 readcnt INT DEFAULT 0
+);
+
+CREATE TABLE comment
+(
+	 NO BIGINT PRIMARY KEY AUTO_INCREMENT,
+	 board_no INT REFERENCES board(NO),
+	 userid VARCHAR(20) REFERENCES member(userid),
+	 title VARCHAR(30) NOT NULL,
+	 content VARCHAR(255) NOT NULL	 
+);

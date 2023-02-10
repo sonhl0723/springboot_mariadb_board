@@ -38,3 +38,6 @@ pom.xml.tag
 mvnw/
 mvnw
 mvnw.cmd
+/.metadata/
+
+**/application.properties
